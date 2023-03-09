@@ -1,9 +1,11 @@
 package com.melihcan.mapper;
 
 import com.melihcan.dto.request.RegisterRequestDto;
+import com.melihcan.dto.request.UserSaveRequestDto;
 import com.melihcan.dto.response.RegisterResponseDto;
 import com.melihcan.repository.entity.Auth;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
@@ -13,4 +15,7 @@ public interface IAuthMapper {
     Auth toAuth (final RegisterRequestDto dto);
 
     RegisterResponseDto toRegisterResponseDto (final Auth auth);
+
+    @Mapping(source = "id",target = "authid")
+    UserSaveRequestDto toUserSaveRequestDto(final Auth auth);
 }

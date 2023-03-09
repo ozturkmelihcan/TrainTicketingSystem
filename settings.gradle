@@ -1,4 +1,5 @@
 rootProject.name = 'TrainTicketingSystem'
 include 'AuthService'
 include 'UserProfileService'
+include 'ConfigServer'
 

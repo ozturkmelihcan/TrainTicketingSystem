@@ -4,6 +4,7 @@ import com.melihcan.dto.request.ActivateRequestDto;
 import com.melihcan.dto.request.DoLoginRequestDto;
 import com.melihcan.dto.request.RegisterRequestDto;
 import com.melihcan.dto.response.RegisterResponseDto;
+import com.melihcan.manager.IUserProfileManager;
 import com.melihcan.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
+
 import  static com.melihcan.constants.ApiUrls.*;
 @RestController
 @RequiredArgsConstructor
@@ -18,8 +22,10 @@ import  static com.melihcan.constants.ApiUrls.*;
 public class AuthController {
 
     private final AuthService authService;
+
+
     @PostMapping(REGISTER)
-    public ResponseEntity<RegisterResponseDto> register(@RequestBody RegisterRequestDto dto){
+    public ResponseEntity<RegisterResponseDto> register(@RequestBody @Valid RegisterRequestDto dto){
         return ResponseEntity.ok(authService.register(dto));
     }
     @PostMapping(LOGIN)

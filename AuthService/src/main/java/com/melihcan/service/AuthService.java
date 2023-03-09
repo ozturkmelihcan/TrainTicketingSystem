@@ -6,6 +6,7 @@ import com.melihcan.dto.request.RegisterRequestDto;
 import com.melihcan.dto.response.RegisterResponseDto;
 import com.melihcan.exception.AuthManagerException;
 import com.melihcan.exception.ErrorType;
+import com.melihcan.manager.IUserProfileManager;
 import com.melihcan.mapper.IAuthMapper;
 import com.melihcan.repository.IAuthRepository;
 import com.melihcan.repository.entity.Auth;
@@ -24,10 +25,13 @@ public class AuthService extends ServiceManager<Auth, Long> {
     private final IAuthRepository repository;
     private final JWTTokenManager jwtTokenManager;
 
-    public AuthService(IAuthRepository repository, JWTTokenManager jwtTokenManager) {
+    private final IUserProfileManager userProfileManager;
+
+    public AuthService(IAuthRepository repository, JWTTokenManager jwtTokenManager, IUserProfileManager userProfileManager) {
         super(repository);
         this.repository = repository;
         this.jwtTokenManager = jwtTokenManager;
+        this.userProfileManager=userProfileManager;
     }
 
     public RegisterResponseDto register(RegisterRequestDto dto) {
@@ -35,6 +39,7 @@ public class AuthService extends ServiceManager<Auth, Long> {
             Auth auth = IAuthMapper.INSTANCE.toAuth(dto);
             auth.setActivationCode(CodeGenerator.generateCode());
             save(auth);
+            userProfileManager.createUser(IAuthMapper.INSTANCE.toUserSaveRequestDto(auth));
             return IAuthMapper.INSTANCE.toRegisterResponseDto(auth);
 
         } catch (Exception exception) {

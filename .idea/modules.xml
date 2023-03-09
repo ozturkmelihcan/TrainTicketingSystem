@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/AuthService/TrainTicketingSystem.AuthService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/AuthService/TrainTicketingSystem.AuthService.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ConfigServer/TrainTicketingSystem.ConfigServer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ConfigServer/TrainTicketingSystem.ConfigServer.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/UserProfileService/TrainTicketingSystem.UserProfileService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/UserProfileService/TrainTicketingSystem.UserProfileService.main.iml" />
     </modules>
   </component>
