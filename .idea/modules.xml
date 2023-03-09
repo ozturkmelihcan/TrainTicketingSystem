@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AuthService/TrainTicketingSystem.AuthService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/AuthService/TrainTicketingSystem.AuthService.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/UserProfileService/TrainTicketingSystem.UserProfileService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/UserProfileService/TrainTicketingSystem.UserProfileService.main.iml" />
+    </modules>
+  </component>
+</project>
