@@ -39,7 +39,8 @@ public class AuthService extends ServiceManager<Auth, Long> {
             Auth auth = IAuthMapper.INSTANCE.toAuth(dto);
             auth.setActivationCode(CodeGenerator.generateCode());
             save(auth);
-            userProfileManager.createUser(IAuthMapper.INSTANCE.toUserSaveRequestDto(auth));
+            userProfileManager.save(IAuthMapper.INSTANCE.toUserSaveRequestDto(auth));
+            System.out.println(IAuthMapper.INSTANCE.toUserSaveRequestDto(auth).getEmail());
             return IAuthMapper.INSTANCE.toRegisterResponseDto(auth);
 
         } catch (Exception exception) {

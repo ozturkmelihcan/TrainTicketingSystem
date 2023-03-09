@@ -10,12 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import static com.melihcan.constants.ApiUrls.ACTIVATESTATUS;
 
-@FeignClient(name = "user-userprofile",decode404 = true,url = "http://localhost:9091/api/v1/user")
+@FeignClient(name = "user-userprofile",decode404 = true,url = "http://localhost:9091/userprofile")
 public interface IUserProfileManager {
 
-    @PostMapping("create")
-    ResponseEntity<Boolean>createUser(@RequestBody UserSaveRequestDto dto);
-
-    @PostMapping(ACTIVATESTATUS+"/{authid}")
-    ResponseEntity<Boolean>activateStatus(@PathVariable Long authid);
+    @PostMapping("/save")
+    ResponseEntity<Boolean>save(@RequestBody UserSaveRequestDto dto);
 }
